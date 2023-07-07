@@ -32,35 +32,20 @@ public class CharacterController2D : MonoBehaviour
         CalculateMovement();
     }
 
-    float jumpTime = 0f;
     private void CalculateMovement()
     {
-        var wasGrounded = isGrounded;
-
-        if (!wasGrounded)
-        {
-            jumpTime += Time.fixedDeltaTime;
-        }
 
         //Figure out if we're grounded
         isGrounded = false;
 
-        if (rigidbody2D.velocity.y <= 0f) {
-
-            var contacts = new List<ContactPoint2D>();
-            rigidbody2D.GetContacts(contacts);
-            foreach (var contact in contacts)
+        var contacts = new List<ContactPoint2D>();
+        rigidbody2D.GetContacts(contacts);
+        foreach (var contact in contacts)
+        {
+            if (contact.normal.y > Mathf.Abs(contact.normal.x))
             {
-                if (contact.normal.y > contact.normal.x)
-                {
-                    isGrounded = true;
-                    if(!wasGrounded)
-                    {
-                        Debug.Log(jumpTime);
-                        jumpTime = 0f;
-                    }
-                    break;
-                }
+                isGrounded = true;
+                break;
             }
         }
 

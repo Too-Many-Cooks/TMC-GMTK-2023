@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/BeatTestingScene.unity
+    guid: 6b5a497d0e7bf0f4e8e15321409e054a
   m_configObjects: {}

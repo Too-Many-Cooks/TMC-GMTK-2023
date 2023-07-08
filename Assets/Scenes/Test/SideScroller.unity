@@ -478,6 +478,7 @@ MonoBehaviour:
   runSpeed: 12
   jumpHeight: 5.5
   jumpDuration: 0.625
+  coyoteTime: 0.05
 --- !u!23 &543337373
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -7,9 +7,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private float runSpeed = 8f;
+    [SerializeField] private float runSpeed = 12f;
     [SerializeField] private float jumpHeight = 5.5f;
     [SerializeField] private float jumpDuration = 0.625f;
+    [SerializeField] private float coyoteTime = 0.05f;
 
     private float DesiredGravity { get { return -8 * jumpHeight / (jumpDuration * jumpDuration); } }
     private float JumpImpulse { get { return 4 * jumpHeight / jumpDuration; } }
@@ -17,6 +18,7 @@ public class CharacterController2D : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
 
     private float desiredMove = 0f;
+    private float coyoteTimer = 0f;
     private bool tryJump = false;
 
     private bool isGrounded = false;
@@ -34,6 +36,14 @@ public class CharacterController2D : MonoBehaviour
 
     private void CalculateMovement()
     {
+        if (!isGrounded && coyoteTimer > 0f)
+        {
+            coyoteTimer -= Time.fixedDeltaTime;
+            if(coyoteTimer < 0f)
+            {
+                coyoteTimer = 0f;
+            }
+        }
 
         //Figure out if we're grounded
         isGrounded = false;
@@ -49,6 +59,11 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
+        if(isGrounded)
+        {
+            coyoteTimer = coyoteTime;
+        }
+
         //Handle gravity
         rigidbody2D.gravityScale = DesiredGravity / Physics2D.gravity.y;
 
@@ -60,9 +75,10 @@ public class CharacterController2D : MonoBehaviour
         if(tryJump)
         {
             tryJump = false;
-            if(isGrounded)
+            if(isGrounded || coyoteTimer > 0f)
             {
                 desiredVelocity.y = JumpImpulse;
+                coyoteTimer = 0f;
                 isGrounded = false;
             }
         }

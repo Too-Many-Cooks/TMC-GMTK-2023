@@ -27,7 +27,6 @@ public class CharacterController2D : MonoBehaviour
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        
     }
 
     void FixedUpdate()

@@ -55,6 +55,7 @@ public class WebGLCompatibility : MonoBehaviour
     }
 }
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(WebGLCompatibility))]
 public class WebGLCompatibilityEditor : Editor
 {
@@ -76,3 +77,4 @@ public class WebGLCompatibilityEditor : Editor
         }
     }
 }
+#endif

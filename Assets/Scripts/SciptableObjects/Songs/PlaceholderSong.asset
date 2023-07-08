@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlaceholderSong
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 47bdb168f3e818d48a00c74935fe0786, type: 3}
-  beatsPerMinute: 120
+  beatsPerMinute: 60
   timeSignatureByFour: 4

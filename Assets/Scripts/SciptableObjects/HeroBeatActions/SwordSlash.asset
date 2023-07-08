@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 504f97f5548092c45b796f2912a26492, type: 3}
-  m_Name: New Hero Beat Action
+  m_Name: SwordSlash
   m_EditorClassIdentifier: 
   Name: SwordSlash
   Description: Hero slashes with his sword

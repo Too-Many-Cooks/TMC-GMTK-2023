@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tutorial_Theme1
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 390c0c34317fe674d8eff0dde01987f1, type: 3}
-  beatsPerMinute: 99
+  beatsPerMinute: 100
   timeSignatureByFour: 4

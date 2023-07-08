@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226005d3323791445a4cefb46294fb92, type: 3}
   m_Name: TutorialActionSequence
   m_EditorClassIdentifier: 
-  heroBeatActionSequence: []
+  heroBeatActionSequence:
+  - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

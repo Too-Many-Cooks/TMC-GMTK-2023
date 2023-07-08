@@ -39,7 +39,7 @@ public class ActionHitEffect : MonoBehaviour
         {
             if (_myRegularTimer == null)
             {
-                _myRegularTimer = new Timer(growingScaleTimeLenght);
+                _myRegularTimer = new Timer(growingScaleTimeLength);
                 _myRegularTimer.Time = _myRegularTimer.TargetTime;
             }
                 
@@ -91,10 +91,9 @@ public class ActionHitEffect : MonoBehaviour
     #endregion
 
     const float verticalScaleMultiplier = 2f;
-    const float growingScaleTimeLenght = 0.05f;
+    public float growingScaleTimeLength = 0.05f;
     const float decreasingScaleTimeLenght = 1f;
     const float targetSpriteTransparency = 0.7f;
-
 
     private void Update()
     {

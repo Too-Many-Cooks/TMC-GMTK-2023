@@ -4,20 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(WebGLCompatibility))]
 public class BeatManager : MonoBehaviour
 {
+    public static BeatManager Instance;
+
+    private WebGLCompatibility webGLCompatibility;
+
     [SerializeField]
     Song currentSong;
 
-    [SerializeField]
+    //[SerializeField]
     AudioSource audioSource;
 
     float beatsPerMinute = 120f;
 
+    public int TimeSig { get => timeSig; set => timeSig = value; }
     private int timeSig = 4;
 
     [SerializeField]
-    UnityEvent<BeatEventData> beatHitEvent;
+    public UnityEvent<BeatEventData> beatHitEvent;
 
     public float EstimatedTimeTillNextBeat { get => estimatedTimeTillNextBeat; set => estimatedTimeTillNextBeat = value; }
     private float estimatedTimeTillNextBeat;
@@ -26,6 +32,7 @@ public class BeatManager : MonoBehaviour
     private float audioSourcePlayTime;
     
     public int TotalBeatCounter { get => totalBeatCounter; set => totalBeatCounter = value; }
+    
     private int totalBeatCounter;
 
     public struct BeatEventData
@@ -43,6 +50,16 @@ public class BeatManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        audioSource = GetComponent<AudioSource>();
+        webGLCompatibility = GetComponent<WebGLCompatibility>();
         LoadSong(currentSong);
         StartCoroutine(BeatTimingCoroutine());
     }
@@ -82,6 +99,8 @@ public class BeatManager : MonoBehaviour
             yield return null;
         }
     }
+
+
 
     private float EstimateTimeTillNextBeat(float elapsedTime, int elapsedBeats)
     {

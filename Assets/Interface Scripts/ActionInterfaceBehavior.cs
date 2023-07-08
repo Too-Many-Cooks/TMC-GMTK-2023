@@ -20,7 +20,7 @@ public class ActionInterfaceBehavior : MonoBehaviour
         }
     }
 
-    Image _myImage;
+    /*Image _myImage;
     Image MyImage
     {
         get
@@ -30,7 +30,7 @@ public class ActionInterfaceBehavior : MonoBehaviour
 
             return _myImage;
         }
-    }
+    }*/
 
     Timer _myRegularTimer;
     Timer MyRegularTimer
@@ -100,12 +100,16 @@ public class ActionInterfaceBehavior : MonoBehaviour
     // The multiplier of the scale at the high point of the model.
     const float bigScaleMultiplier = 1.1f;
     const float smallScaleMultiplier = 0.8f;
-
+    
+    float durationOfTimer;
 
     private void Awake()
     {
         MyRectTransform.position = InitialPosition;
-        MyImage.color = ObtainColorForTransparency(0);
+        foreach(var i in GetComponentsInChildren<Image>())
+        {
+            i.color = ObtainColorForTransparency(0, i.color);
+        }
     }
 
     private void Update()
@@ -116,9 +120,8 @@ public class ActionInterfaceBehavior : MonoBehaviour
             MyRegularTimer.Update();
             AppearAnimation(MyRegularTimer.PercentageComplete);
 
-            if (MyRegularTimer.IsComplete)
-                MyActionHitEffect.ActivateHitEffect();
-
+            /*if (MyRegularTimer.IsComplete)
+                MyActionHitEffect.ActivateHitEffect();*/
 
             return;
         }
@@ -136,7 +139,10 @@ public class ActionInterfaceBehavior : MonoBehaviour
     {
         // Visually changes.
         float alpha = EasingFunctions.ApplyEase(percentageComplete, EasingFunctions.Functions.InCirc);
-        MyImage.color = ObtainColorForTransparency(alpha);
+        foreach (var i in GetComponentsInChildren<Image>())
+        {
+            i.color = ObtainColorForTransparency(alpha, i.color);
+        }
 
         // Movement.
         float easedMovement = EasingFunctions.ApplyEase(percentageComplete, EasingFunctions.Functions.InCubic);
@@ -170,7 +176,10 @@ public class ActionInterfaceBehavior : MonoBehaviour
         // Visually changes.                  
         float alpha =            // ("1 - %" because we are going from visible to invisible)
             EasingFunctions.ApplyEase(1 - correctedPercentageComplete, EasingFunctions.Functions.OutCubic);
-        MyImage.color = ObtainColorForTransparency(alpha);
+        foreach (var i in GetComponentsInChildren<Image>())
+        {
+            i.color = ObtainColorForTransparency(alpha, i.color);
+        }
 
         // Movement.
         float easedMovement = 
@@ -194,15 +203,15 @@ public class ActionInterfaceBehavior : MonoBehaviour
     }
 
 
-    Color ObtainColorForTransparency(float alpha)
+    Color ObtainColorForTransparency(float alpha, Color previousColor)
     {
         if(alpha < 0 || alpha > 1)
         {
             Debug.LogError("Alpha value must be in the Range[0,1].");
-            return Color.white;
+            return previousColor;
         }
 
-        return new Color(1, 1, 1, alpha);
+        return new Color(previousColor.r, previousColor.g, previousColor.b, alpha);
     }
 
     /// <summary>
@@ -212,13 +221,13 @@ public class ActionInterfaceBehavior : MonoBehaviour
     /// <returns></returns>
     float ObtainDurationOfTimer()
     {
-        return 2.5f;
+        return durationOfTimer;
     }
 
 
     #region DEBUG
 
-    ActionHitEffect _myActionHitEffect;
+    /*ActionHitEffect _myActionHitEffect;
     ActionHitEffect MyActionHitEffect
     {
         get
@@ -228,7 +237,9 @@ public class ActionInterfaceBehavior : MonoBehaviour
 
             return _myActionHitEffect;
         }
-    }
+    }*/
+
+    public float DurationOfTimer { get => durationOfTimer; set => durationOfTimer = value; }
 
     #endregion
 }

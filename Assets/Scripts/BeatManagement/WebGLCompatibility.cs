@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class WebGLCompatibility : MonoBehaviour
@@ -9,9 +10,12 @@ public class WebGLCompatibility : MonoBehaviour
     public bool autoplay = false;
 
     AudioSource audioSource;
-    bool isPaused = false;
+
     float pauseTime;
 
+    public UnityEvent<bool> PauseStateChangedEvent;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,7 @@ public class WebGLCompatibility : MonoBehaviour
 
     private void Update()
     {
+        
     }
 
     public void Play()
@@ -36,6 +41,7 @@ public class WebGLCompatibility : MonoBehaviour
     {
         audioSource.Pause();
         pauseTime = audioSource.time;
+        PauseStateChangedEvent.Invoke(true);
     }
 
     public void UnPause()
@@ -44,6 +50,7 @@ public class WebGLCompatibility : MonoBehaviour
         {
             audioSource.time = pauseTime;
             audioSource.UnPause();
+            PauseStateChangedEvent.Invoke(false);
         }
     }
 }

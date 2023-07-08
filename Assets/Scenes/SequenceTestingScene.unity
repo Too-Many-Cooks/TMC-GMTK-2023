@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274544006281943090, guid: 025ca74857561004dbc54e24a9ef4c2a, type: 3}
       propertyPath: beatHitEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2274544006281943090, guid: 025ca74857561004dbc54e24a9ef4c2a, type: 3}
       propertyPath: beatHitEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -396,22 +396,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f8de2b1ecfd7444b4ff23824ff851d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroActionSequencer: {fileID: 11400000, guid: d7feeeeefd38f1b4da208da531756d05, type: 2}
-  HeroBeatActionEvent:
+  heroActionSequence: {fileID: 0}
+  graceBars: 2
+  remainingGraceBeats: 0
+  _onMove:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1550201719}
-        m_TargetAssemblyTypeName: DEBUG_ActionWriter, Assembly-CSharp
-        m_MethodName: OnHeroAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _onJump:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1345146497
 Transform:
   m_ObjectHideFlags: 0

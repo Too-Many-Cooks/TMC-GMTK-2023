@@ -4,10 +4,22 @@ using UnityEngine;
 using UnityEngine.Events;
 using static BeatManager;
 
+[DefaultExecutionOrder(1)]
 public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
 {
+    private BeatManager beatManager;
+
+    public ActionSequence HeroActionSequence { get => heroActionSequence; private set => heroActionSequence = value; }
     [SerializeField]
-    ActionSequence heroActionSequencer = null;
+    ActionSequence heroActionSequence = null;
+
+    [SerializeField]
+    private int graceBars = 2;
+    public int RemainingGraceBeats { get => remainingGraceBeats; private set => remainingGraceBeats = value; }
+    [SerializeField]
+    private int remainingGraceBeats = 0;
+    
+    public int CurrentActionSequencerIndex { get => currentActionSequencerIndex; private set => currentActionSequencerIndex = value; }
     int currentActionSequencerIndex = 0;
 
     [SerializeField] private UnityEvent<float> _onMove;
@@ -16,14 +28,33 @@ public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
     [SerializeField] private UnityEvent _onJump;
     public UnityEvent OnJump { get { return _onJump; } }
 
-    public void OnBeat(BeatEventData beatEventData)
+    private void Start()
     {
-        if(heroActionSequencer == null)
+        beatManager = BeatManager.Instance;
+        beatManager.beatHitEvent.AddListener(OnBeat);
+        ResetSequencer();
+    }
+
+    public void ResetSequencer()
+    {
+        remainingGraceBeats = graceBars * beatManager.TimeSig;
+        currentActionSequencerIndex = 0;
+    }
+
+    private void OnBeat(BeatEventData beatEventData)
+    {
+        if(remainingGraceBeats > 0)
+        {
+            remainingGraceBeats--;
+            return;
+        }
+
+        if(heroActionSequence == null)
             return;
 
-        var heroBeatAction = heroActionSequencer.heroBeatActionSequence[currentActionSequencerIndex];
+        var heroBeatAction = heroActionSequence.heroBeatActionSequence[currentActionSequencerIndex];
         heroBeatAction?.Act(this);
         currentActionSequencerIndex += 1;
-        currentActionSequencerIndex %= heroActionSequencer.heroBeatActionSequence.Length;
+        currentActionSequencerIndex %= heroActionSequence.heroBeatActionSequence.Length;
     }
 }

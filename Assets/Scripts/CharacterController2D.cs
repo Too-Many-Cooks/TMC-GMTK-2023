@@ -110,12 +110,17 @@ public class CharacterController2D : MonoBehaviour
         rigidbody2D.velocity = desiredVelocity;
     }
 
-    void  OnMove(InputValue value)
+    public void OnMove(float value)
     {
-        desiredMove = value.Get<float>();
+        desiredMove = value;
     }
 
-    void OnJump()
+    void OnMove(InputValue value)
+    {
+        OnMove(value.Get<float>());
+    }
+
+    public void OnJump()
     {
         tryJump = true;
     }

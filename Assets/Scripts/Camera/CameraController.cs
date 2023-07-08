@@ -9,27 +9,21 @@ public class CameraController : MonoBehaviour
 
 
     [Header("References")]
-    [SerializeField] LevelMovementMeassurement myLevelMeassurementScript;
-    
+    [SerializeField] Transform heroTransform;
+
 
 
     private void Update()
     {
         // We progressively approach the hero if we are not there.
-        Vector3 deltaToHero = -transform.localPosition;
+        float deltaToHero = heroTransform.position.x - transform.position.x;
 
-        if(deltaToHero.magnitude < speedForApproachingHero * Time.deltaTime)
+        if(Mathf.Abs(deltaToHero) < speedForApproachingHero * Time.deltaTime)
         {
-            transform.localPosition = Vector3.zero;
+            transform.localPosition += new Vector3(deltaToHero, 0, 0);
             return;
         }
 
-        transform.localPosition += deltaToHero.normalized * speedForApproachingHero * Time.deltaTime;
-    }
-
-    private void LateUpdate()
-    {
-        // We replicate the scenery movement.
-        transform.localPosition += myLevelMeassurementScript.LevelMovementDelta;
+        transform.localPosition += new Vector3(deltaToHero, 0, 0) * speedForApproachingHero * Time.deltaTime;
     }
 }

@@ -7,7 +7,7 @@ using static BeatManager;
 public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
 {
     [SerializeField]
-    ActionSequence heroActionSequencer;
+    ActionSequence heroActionSequencer = null;
     int currentActionSequencerIndex = 0;
 
     [SerializeField] private UnityEvent<float> _onMove;
@@ -18,6 +18,9 @@ public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
 
     public void OnBeat(BeatEventData beatEventData)
     {
+        if(heroActionSequencer == null)
+            return;
+
         var heroBeatAction = heroActionSequencer.heroBeatActionSequence[currentActionSequencerIndex];
         heroBeatAction?.Act(this);
         currentActionSequencerIndex += 1;

@@ -320,7 +320,6 @@ MonoBehaviour:
   runSpeed: 12
   jumpHeight: 5.5
   jumpDuration: 0.625
-  groundedDistance: 0.001
 --- !u!23 &543337373
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -417,7 +416,7 @@ MonoBehaviour:
     m_ActionName: Hero Control/Move[/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Hero Control
+  m_DefaultActionMap: 2caddf5d-8451-4f19-b966-78732c13273e
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 801848322}
 --- !u!70 &543337377

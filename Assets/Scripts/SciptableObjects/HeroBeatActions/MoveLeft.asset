@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Move Left
   Description: Hero starts moving left
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 8dfa6d910f2ea1a4081d90a47f868a73, type: 3}
   desiredMove: -1

@@ -10,6 +10,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] private float shiftDuration = 0.15f;
     [SerializeField] private float shiftCooldown = 0.5f;
     [SerializeField] private float shiftQueueTime = 0.15f;
+    [SerializeField] private Vector2Int topRighClamp = new Vector2Int(5, 5);
+    [SerializeField] private Vector2Int bottomLeftClamp = new Vector2Int(-5, -5);
 
     private float ShiftSpeed {  get { return shiftDistance / (TrueShiftDuration); } }
     private float TrueShiftDuration { get { return ShiftTicks * Time.fixedDeltaTime; } }
@@ -19,15 +21,17 @@ public class LevelController : MonoBehaviour
 
     private float shiftTimer = 0f;
     private float shiftCooldownTimer = 0f;
-    private Vector2 queuedShift = Vector2.zero;
-    private Vector2 currentShift = Vector2.zero;
-    private Vector2 shiftEnd = Vector2.zero;
+    private Vector2 origin;
+    private Vector2Int queuedShift = Vector2Int.zero;
+    private Vector2Int currentShift = Vector2Int.zero;
+    private Vector2 shiftPosition = Vector2.zero;
 
     private new Rigidbody2D rigidbody2D;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        origin = rigidbody2D.position;
     }
 
     // Start is called before the first frame update
@@ -60,23 +64,28 @@ public class LevelController : MonoBehaviour
         //Handle current shift
         if (shiftTimer <= 0f && shiftCooldownTimer <= 0f && queuedShift != Vector2.zero)
         {
-            currentShift = queuedShift;
-            queuedShift = Vector2.zero;
+            currentShift += queuedShift;
+            currentShift.Clamp(bottomLeftClamp, topRighClamp);
             shiftCooldownTimer = TrueShiftCooldown;
             shiftTimer = TrueShiftDuration;
-            shiftEnd = rigidbody2D.position + currentShift * shiftDistance;
+            shiftPosition = origin + (Vector2)currentShift * shiftDistance;
+            queuedShift = Vector2Int.zero;
         }
 
-        if (shiftTimer > 0f )
+        if (shiftTimer > 0f)
         {
             var velocity = rigidbody2D.velocity;
-            var frameShift = Vector2.SmoothDamp(rigidbody2D.position, shiftEnd, ref velocity, shiftTimer, Mathf.Infinity, Time.fixedDeltaTime);
+            var frameShift = Vector2.SmoothDamp(rigidbody2D.position, shiftPosition, ref velocity, shiftTimer, Mathf.Infinity, Time.fixedDeltaTime);
             rigidbody2D.velocity = velocity;
+        } else
+        {
+            rigidbody2D.velocity = Vector2.zero;
+            rigidbody2D.MovePosition(shiftPosition);
         }
 
         if(shiftTimer < 0f)
         {
-            currentShift = Vector2.zero;
+            currentShift = Vector2Int.zero;
         }
     }
 
@@ -84,7 +93,7 @@ public class LevelController : MonoBehaviour
     {
         if(shiftCooldownTimer < shiftQueueTime)
         {
-            queuedShift = Vector2.up;
+            queuedShift = Vector2Int.up;
         }
     }
 
@@ -92,7 +101,7 @@ public class LevelController : MonoBehaviour
     {
         if (shiftCooldownTimer < shiftQueueTime)
         {
-            queuedShift = Vector2.down;
+            queuedShift = Vector2Int.down;
         }
     }
 
@@ -100,7 +109,7 @@ public class LevelController : MonoBehaviour
     {
         if (shiftCooldownTimer < shiftQueueTime)
         {
-            queuedShift = Vector2.left;
+            queuedShift = Vector2Int.left;
         }
     }
 
@@ -108,7 +117,7 @@ public class LevelController : MonoBehaviour
     {
         if (shiftCooldownTimer < shiftQueueTime)
         {
-            queuedShift = Vector2.right;
+            queuedShift = Vector2Int.right;
         }
     }
 }

@@ -2,6 +2,98 @@
     "name": "HeroDebugControls",
     "maps": [
         {
+            "name": "Hero Runner",
+            "id": "2caddf5d-8451-4f19-b966-78732c13273e",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "b7aad674-cb70-4efc-8f81-427a13dc28ae",
+                    "expectedControlType": "Button",
+                    "processors": "Clamp(min=-1,max=1)",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "366ab8a4-ffe2-4294-a961-725e90a4e63d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "AD",
+                    "id": "e9e56fbc-3111-42e0-9184-3b4e5f392098",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4cb3ba5b-42c9-44a6-a0a7-a159b01ac6dc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2a4c2d9a-a502-48d6-b218-92b705fdf949",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c40998c7-8caa-4728-b01e-6a087d99c3f4",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "Clamp",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb333a12-efbd-4e17-8f96-bcee67ecf3b8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3766fa38-5b7e-402e-b64b-ef1c21706b94",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "Hero Control",
             "id": "983025dc-cfa2-4c10-ad28-5f53d62e3cc9",
             "actions": [

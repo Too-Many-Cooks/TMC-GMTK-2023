@@ -5,6 +5,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ActionSequence : ScriptableObject
 {
-    public List<HeroBeatAction> heroBeatActionSequence;
-
+    public HeroBeatAction[] heroBeatActionSequence;
 }

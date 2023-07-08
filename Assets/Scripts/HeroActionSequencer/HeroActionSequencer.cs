@@ -15,8 +15,11 @@ public class HeroActionSequencer : MonoBehaviour
 
     public void OnBeat(BeatEventData beatEventData)
     {
-        HeroBeatActionEvent.Invoke(heroActionSequencer.heroBeatActionSequence[currentActionSequencerIndex]);
+        if (heroActionSequencer.heroBeatActionSequence[currentActionSequencerIndex] != null)
+        {
+            HeroBeatActionEvent.Invoke(heroActionSequencer.heroBeatActionSequence[currentActionSequencerIndex]);
+        }
         currentActionSequencerIndex += 1;
-        currentActionSequencerIndex %= heroActionSequencer.heroBeatActionSequence.Count;
+        currentActionSequencerIndex %= heroActionSequencer.heroBeatActionSequence.Length;
     }
 }

@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private float shiftDuration = 0.15f;
     [SerializeField] private float shiftCooldown = 0.5f;
     [SerializeField] private float shiftQueueTime = 0.15f;
-    [SerializeField] private Vector2Int topRighClamp = new Vector2Int(5, 5);
+    [SerializeField] private Vector2Int topRightClamp = new Vector2Int(5, 5);
     [SerializeField] private Vector2Int bottomLeftClamp = new Vector2Int(-5, -5);
 
     private float ShiftSpeed {  get { return shiftDistance / (TrueShiftDuration); } }
@@ -65,7 +65,7 @@ public class LevelController : MonoBehaviour
         if (shiftTimer <= 0f && shiftCooldownTimer <= 0f && queuedShift != Vector2.zero)
         {
             currentShift += queuedShift;
-            currentShift.Clamp(bottomLeftClamp, topRighClamp);
+            currentShift.Clamp(bottomLeftClamp, topRightClamp);
             shiftCooldownTimer = TrueShiftCooldown;
             shiftTimer = TrueShiftDuration;
             shiftPosition = origin + (Vector2)currentShift * shiftDistance;

@@ -41,10 +41,15 @@ public class BeatManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         LoadSong(currentSong);
         StartCoroutine(BeatTimingCoroutine());
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     public void LoadSong(Song nextSong)

@@ -119,4 +119,10 @@ public class CharacterController2D : MonoBehaviour
     {
         tryJump = true;
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = isGrounded ? Color.green : coyoteTimer > 0f ? Color.yellow : Color.red;
+        Gizmos.DrawSphere(transform.position, 0.2f);
+    }
 }

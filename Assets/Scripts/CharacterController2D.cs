@@ -32,6 +32,10 @@ public class CharacterController2D : MonoBehaviour
 
     private bool isGrounded = false;
 
+    public UnityEvent<bool> OnGrounded;
+
+    public UnityEvent<float> OnRunning;
+
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -75,7 +79,9 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        if(isGrounded)
+        OnGrounded.Invoke(isGrounded);
+
+        if (isGrounded)
         {
             coyoteTimer = coyoteTime;
         }
@@ -103,7 +109,11 @@ public class CharacterController2D : MonoBehaviour
 
         if (desiredShift == 0f)
         {
-            desiredPosition.x += desiredMove * MoveSpeed * Time.fixedDeltaTime;
+            var xVelocity = desiredMove * MoveSpeed;
+
+            desiredPosition.x += xVelocity * Time.fixedDeltaTime;
+
+            OnRunning.Invoke(xVelocity);
         }
         else
         {
@@ -112,11 +122,16 @@ public class CharacterController2D : MonoBehaviour
             currentShift = Mathf.SmoothDamp(oldShift, desiredShift, ref xVelocity, desiredShiftTime, Mathf.Infinity, Time.fixedDeltaTime);
             desiredShiftTime -= Time.fixedDeltaTime;
             desiredPosition.x += currentShift - oldShift;
-            if(currentShift == desiredShift)
+
+            OnRunning.Invoke(xVelocity);
+
+            if (currentShift == desiredShift)
             {
                 desiredShift = 0f;
                 currentShift = 0f;
                 desiredShiftTime = 0f;
+
+                OnRunning.Invoke(0);
             }
         }
 

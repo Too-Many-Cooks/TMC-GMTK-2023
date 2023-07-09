@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226005d3323791445a4cefb46294fb92, type: 3}
+  m_Name: Level4
+  m_EditorClassIdentifier: 
+  heroBeatActionSequence:
+  - {fileID: 11400000, guid: 0e097530ad212b043880541d04cad8ab, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: a78ff8d6a79b0df439f25db94e8208d1, type: 2}
+  - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}

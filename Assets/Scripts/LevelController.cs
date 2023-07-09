@@ -84,9 +84,11 @@ public class LevelController : MonoBehaviour
             currentShift += queuedShift;
             TempShift = currentShift;
             currentShift.Clamp(bottomLeftClamp, topRightClamp);
+
             if(TempShift != currentShift)
             {
                 MyAudioManager.PlaySound(LimitEnvironmentSoundName);             
+
             }
             shiftCooldownTimer = TrueShiftCooldown;
             shiftTimer = TrueShiftDuration;

@@ -28,6 +28,11 @@ public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
     [SerializeField] private UnityEvent _onJump;
     public UnityEvent OnJump { get { return _onJump; } }
 
+
+    [SerializeField] private UnityEvent _onSprint;
+    public UnityEvent OnSprint { get { return _onSprint; } }
+
+
     private void Start()
     {
         beatManager = BeatManager.Instance;

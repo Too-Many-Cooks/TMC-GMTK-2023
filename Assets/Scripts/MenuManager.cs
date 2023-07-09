@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject initialScreen;
     [SerializeField] GameObject levelSelectionScreen;
+    [SerializeField] GameObject instructionsScreen;
     [SerializeField] GameObject creditsScreen;
 
     [Header("Scenes:")]
@@ -53,12 +54,26 @@ public class MenuManager : MonoBehaviour
     public void ClickEnterCredits()
     {
         initialScreen.SetActive(false);
-        levelSelectionScreen.SetActive(true);
+        creditsScreen.SetActive(true);
     }
 
     public void ClickExitCredits()
     {
         initialScreen.SetActive(true);
-        levelSelectionScreen.SetActive(false);
+        creditsScreen.SetActive(false);
+    }
+
+
+    public void ClickEnterInstructions()
+    {
+        initialScreen.SetActive(false);
+        instructionsScreen.SetActive(true);
+    }
+
+    public void ClickExitInstructions()
+    {
+        initialScreen.SetActive(true);
+        instructionsScreen.SetActive(false);
     }
 }
+

@@ -23,6 +23,10 @@ public class HeroHealthManager : MonoBehaviour
     [SerializeField]
     Renderer blinikingRenderer;
 
+    [SerializeField]
+    float crushIntersectionTreshold = 0.3f;
+    [SerializeField]
+    int framesPerCrushDamage = 10;
     int fixedFrameCount = 0;
     int lastCrushFrame = int.MinValue;
     int crushFrameCount = 0;
@@ -78,7 +82,7 @@ public class HeroHealthManager : MonoBehaviour
         {
             foreach (var contact in collision.contacts)
             {
-                if (contact.separation < -0.3f)
+                if (contact.separation < -crushIntersectionTreshold)
                 {
                     ContactFilter2D contactFilter = new ContactFilter2D();
                     contactFilter.NoFilter();
@@ -102,7 +106,7 @@ public class HeroHealthManager : MonoBehaviour
                                 {
                                     crushFrameCount = 0;
                                 }
-                                if(crushFrameCount > 5)
+                                if(crushFrameCount > framesPerCrushDamage)
                                 {
                                     Damage();
                                     crushFrameCount = 0;

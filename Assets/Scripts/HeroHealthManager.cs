@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(1)]
 [RequireComponent(typeof(Collider2D))]
 public class HeroHealthManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class HeroHealthManager : MonoBehaviour
 
     private void Start()
     {
+        healthVisualizer = HealthVisualization.Instance;
         BeatManager.Instance.beatHitEvent.AddListener(OnBeatHit);
         healthVisualizer.UpdateHealth(health);
     }

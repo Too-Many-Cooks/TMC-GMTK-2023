@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class HealthVisualization : MonoBehaviour
 {
+    public static HealthVisualization Instance;
+
     /*[SerializeField]
     Sprite fullHeart;
     [SerializeField]
@@ -23,6 +25,16 @@ public class HealthVisualization : MonoBehaviour
 
     [SerializeField]
     List<Image> hearts;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Start()
     {

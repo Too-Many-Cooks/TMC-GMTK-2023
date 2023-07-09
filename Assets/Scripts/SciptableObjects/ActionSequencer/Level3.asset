@@ -10,14 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 226005d3323791445a4cefb46294fb92, type: 3}
-  m_Name: Level2
+  m_Name: Level3
   m_EditorClassIdentifier: 
   heroBeatActionSequence:
   - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: 0b89d6925ac43ed42b5ebba48c4af44d, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: ee3dd3e6911ba3848a681447f8d7187d, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}
   - {fileID: 0}
   - {fileID: 11400000, guid: bec3b3a5dfc9c644e9fb3e74d3083eeb, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 0b89d6925ac43ed42b5ebba48c4af44d, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 07c75b46114607c4b991867d82889f81, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ee3dd3e6911ba3848a681447f8d7187d, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: bec3b3a5dfc9c644e9fb3e74d3083eeb, type: 2}

@@ -2,105 +2,22 @@
     "name": "HeroDebugControls",
     "maps": [
         {
-            "name": "Hero Runner",
-            "id": "2caddf5d-8451-4f19-b966-78732c13273e",
-            "actions": [
-                {
-                    "name": "Move",
-                    "type": "Button",
-                    "id": "b7aad674-cb70-4efc-8f81-427a13dc28ae",
-                    "expectedControlType": "Button",
-                    "processors": "Clamp(min=-1,max=1)",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "366ab8a4-ffe2-4294-a961-725e90a4e63d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "AD",
-                    "id": "e9e56fbc-3111-42e0-9184-3b4e5f392098",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "4cb3ba5b-42c9-44a6-a0a7-a159b01ac6dc",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "2a4c2d9a-a502-48d6-b218-92b705fdf949",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "c40998c7-8caa-4728-b01e-6a087d99c3f4",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "Clamp",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bb333a12-efbd-4e17-8f96-bcee67ecf3b8",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3766fa38-5b7e-402e-b64b-ef1c21706b94",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
             "name": "Hero Control",
             "id": "983025dc-cfa2-4c10-ad28-5f53d62e3cc9",
             "actions": [
                 {
+                    "name": "Sprint",
+                    "type": "Value",
+                    "id": "f1ef98fc-8bcd-4725-92de-a18cb58c5930",
+                    "expectedControlType": "Digital",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Move",
                     "type": "Value",
-                    "id": "8c86035f-ad3d-4188-bdf8-3182ee2aca70",
+                    "id": "f2325e3d-39cb-4005-81ad-c7a3d5c3d9e0",
                     "expectedControlType": "Axis",
                     "processors": "Clamp(min=-1,max=1)",
                     "interactions": "",
@@ -114,42 +31,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MoveOver",
+                    "type": "Button",
+                    "id": "12fe9642-11db-497b-bdf7-d0d9fc7858a4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "AD",
-                    "id": "8bc858a3-cf2a-41bf-814b-cfcf8fd7a73e",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "876e8dd2-e797-4fbe-acae-9096338805cf",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "bce33e93-a09d-4f99-8485-c2fca5465d1e",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
                 {
                     "name": "",
                     "id": "de55c54e-7163-4428-aea7-2adddf318d6b",
@@ -171,6 +64,83 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "AD",
+                    "id": "0e13defa-41d2-4467-84ac-925c6b32a73d",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "aef99ffe-1d52-4f1c-810b-1dd40ad22178",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "002c0dfb-9796-4fbd-92aa-7a58febab7f4",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c7352575-2581-4506-bacc-ea41c82b1406",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "QE",
+                    "id": "61df38c8-268f-4903-b4be-9f57541eaf78",
+                    "path": "1DAxis(minValue=-3,maxValue=3)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveOver",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "b9f9f8e4-1216-4b24-8618-3c6455476c1a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveOver",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "e6c7a60e-38df-41e6-9983-aa0fa61b9aca",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveOver",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

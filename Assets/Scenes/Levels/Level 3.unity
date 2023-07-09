@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &367399141
 Transform:
   m_ObjectHideFlags: 0
@@ -1735,30 +1735,6 @@ PrefabInstance:
     - target: {fileID: 1426293606052461132, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
       propertyPath: m_Name
       value: RhythmInterfaceCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618950373738084177, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_Color.b
-      value: 0.5094339
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618950373738084177, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_Color.g
-      value: 0.5094339
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618950373738084177, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_Color.r
-      value: 0.764151
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964833759679368335, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964833759679368335, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4964833759679368335, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 8122563539059183503, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
       propertyPath: m_RenderMode

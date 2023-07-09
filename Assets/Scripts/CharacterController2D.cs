@@ -16,6 +16,27 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private float jumpDuration = 0.625f;
     [SerializeField] private float coyoteTime = 0.05f;
 
+
+    #region Audio
+
+    AudioManager _myAudioManager;
+    AudioManager MyAudioManager
+    {
+        get
+        {
+            if (_myAudioManager == null)
+                _myAudioManager = AudioManager.instance;
+
+            return _myAudioManager;
+        }
+    }
+
+    const string jumpSoundName = "HeroJump";
+    const string swordSwingSoundName = "SwordSwing";
+
+    #endregion
+
+
     private float DesiredGravity { get { return -8 * jumpHeight / (jumpDuration * jumpDuration); } }
     private float JumpImpulse { get { return 4 * jumpHeight / jumpDuration; } }
 
@@ -102,6 +123,8 @@ public class CharacterController2D : MonoBehaviour
                 rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, JumpImpulse);
                 coyoteTimer = 0f;
                 isGrounded = false;
+
+                MyAudioManager.PlaySound(jumpSoundName);
             }
         }
 

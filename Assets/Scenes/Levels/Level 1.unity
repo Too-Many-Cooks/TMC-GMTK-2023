@@ -1287,18 +1287,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhythmInterfaceCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4964833759679368335, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613752387724728052, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8122563539059183503, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

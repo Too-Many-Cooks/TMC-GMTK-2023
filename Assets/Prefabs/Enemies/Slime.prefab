@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 498209245466426737}
   - component: {fileID: 2126125870464639535}
   - component: {fileID: 1505157596409135327}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyeball2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 3523093665467783548}
   - component: {fileID: 7052378501594822667}
   - component: {fileID: 2342400455451424442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Eyeball1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,6 +309,10 @@ PrefabInstance:
     - target: {fileID: 6998306040094789903, guid: 0672118afd648434b9bd54fd1e25521a, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 6998306040094789903, guid: 0672118afd648434b9bd54fd1e25521a, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7709058522005371911, guid: 0672118afd648434b9bd54fd1e25521a, type: 3}
       propertyPath: Mass

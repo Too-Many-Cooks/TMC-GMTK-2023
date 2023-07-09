@@ -23,6 +23,10 @@ public class HeroHealthManager : MonoBehaviour
     [SerializeField]
     Renderer blinikingRenderer;
 
+    int fixedFrameCount = 0;
+    int lastCrushFrame = int.MinValue;
+    int crushFrameCount = 0;
+
     private void Start()
     {
         healthVisualizer = HealthVisualization.Instance;
@@ -58,9 +62,58 @@ public class HeroHealthManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        fixedFrameCount++;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         OnTriggerEnter2D(collision.collider);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer != LayerMask.NameToLayer("Enemy"))
+        {
+            foreach (var contact in collision.contacts)
+            {
+                if (contact.separation < -0.3f)
+                {
+                    ContactFilter2D contactFilter = new ContactFilter2D();
+                    contactFilter.NoFilter();
+                    contactFilter.useTriggers = false;
+                    string[] layers = { "Default" };
+                    contactFilter.layerMask.value = LayerMask.GetMask(layers);
+                    contactFilter.useLayerMask = true;
+                    List<RaycastHit2D> hits = new List<RaycastHit2D>();
+                    if (collision.otherRigidbody.Cast(contact.normal, contactFilter, hits, Mathf.Abs(contact.separation)) > 1)
+                    {
+                        foreach (var hit in hits)
+                        {
+                            if (hit.collider != contact.collider && Vector2.Angle(contact.normal, hit.normal) > 90)
+                            {
+                                if(lastCrushFrame == fixedFrameCount)
+                                    return;
+                                if(lastCrushFrame == fixedFrameCount - 1)
+                                {
+                                    crushFrameCount++;
+                                } else
+                                {
+                                    crushFrameCount = 0;
+                                }
+                                if(crushFrameCount > 5)
+                                {
+                                    Damage();
+                                    crushFrameCount = 0;
+                                }
+                                lastCrushFrame = fixedFrameCount;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
@@ -73,14 +126,19 @@ public class HeroHealthManager : MonoBehaviour
 
         if (damager != null)
         {
-            health--;
-            healthVisualizer.UpdateHealth(health);
-            if (health <= 0)
-                HandleDeath();
-            invincible = true;
-            currentInvincibilityDurationInBeats = invincibilityDurationInBeats;
-            //StartCoroutine(InvicibilityCoroutine(invincibilityDurationInBeats));
+            Damage();
         }
+    }
+
+    private void Damage()
+    {
+        health--;
+        healthVisualizer.UpdateHealth(health);
+        if (health <= 0)
+            HandleDeath();
+        invincible = true;
+        currentInvincibilityDurationInBeats = invincibilityDurationInBeats;
+        //StartCoroutine(InvicibilityCoroutine(invincibilityDurationInBeats));
     }
 
     private void HandleDeath()

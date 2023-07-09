@@ -135,29 +135,6 @@ public class CharacterController2D : MonoBehaviour
             }
         }
 
-        /*var hits = new List<RaycastHit2D>();
-        var desiredStep = desiredVelocity * Time.fixedDeltaTime;
-        if (rigidbody2D.Cast(desiredVelocity, hits, desiredStep.magnitude) > 0)
-        {
-            RaycastHit2D shortestHit = new RaycastHit2D { distance = float.MaxValue };
-            foreach (var hit in hits)
-            {
-                if (hit.distance < shortestHit.distance)
-                {
-                    shortestHit = hit;
-                }
-            }
-
-            var safeStep = desiredVelocity.normalized * shortestHit.distance;
-            var remainingStep = desiredStep - safeStep;
-
-            var lostStep = remainingStep.Project(shortestHit.normal);
-
-            desiredStep -= lostStep;
-
-            desiredVelocity = desiredStep / Time.deltaTime;
-        }*/
-
         previousPosition = rigidbody2D.position;
         rigidbody2D.MovePosition(desiredPosition);
     }

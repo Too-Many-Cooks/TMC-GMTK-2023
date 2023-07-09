@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2748688611576528842}
   - component: {fileID: 1682475228046875821}
   - component: {fileID: 1976556056197656089}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireSkull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1957794933808233061}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1682475228046875821
 CircleCollider2D:
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1957794933808233061}
   - component: {fileID: 8711029851645810189}
   - component: {fileID: 226727757374949447}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SkullModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

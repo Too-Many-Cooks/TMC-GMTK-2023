@@ -54,7 +54,7 @@ public class CharacterController2D : MonoBehaviour
         }
 
         if (Mathf.Abs(rigidbody2D.position.y - previousPosition.y) < 0.001f) {
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0f);
+             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0f);
         }
 
         //Figure out if we're grounded

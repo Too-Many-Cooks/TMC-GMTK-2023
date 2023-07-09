@@ -36,7 +36,7 @@ Transform:
   - {fileID: 358192554888781829}
   - {fileID: 1845937131274868512}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8931545898395567981
 MonoBehaviour:
@@ -118,7 +118,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 4}
   m_Direction: 0
 --- !u!50 &5355459618611169910
 Rigidbody2D:
@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c1ac73030e62f54ca74fa520c921ea8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3c1ac73030e62f54ca74fa520c921ea8, type: 3}
       propertyPath: m_LocalPosition.z

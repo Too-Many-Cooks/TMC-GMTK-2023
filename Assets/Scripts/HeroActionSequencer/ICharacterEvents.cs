@@ -6,4 +6,5 @@ public interface ICharacterEvents
     public UnityEvent<float> OnMoveOver { get; }
     public UnityEvent<bool> OnSprint { get; }
     public UnityEvent OnJump { get; }
+    public UnityEvent OnAttack { get; }
 }

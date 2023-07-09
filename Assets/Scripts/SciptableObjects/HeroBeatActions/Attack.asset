@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b897fb42d2148488858ddc2fb3d9f7, type: 3}
-  m_Name: Stop
+  m_Script: {fileID: 11500000, guid: 36f7f10c1f5db5c4dbfd48fdec040fc6, type: 3}
+  m_Name: Attack
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  Icon: {fileID: 21300000, guid: 58db5671598d97b4faa0790da828bb7b, type: 3}
-  desiredMove: 0
-  sprint: 0
+  Icon: {fileID: 21300000, guid: 839414083ae31c146b1d32fdc36c508e, type: 3}

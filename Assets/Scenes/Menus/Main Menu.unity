@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -288,13 +288,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "This hero will not save the world... But this world might save its hero.\n\nThe
     walls of the dungeon are shifting... literally. They just need a little push.
-    Move them with the WASD or Arrow keys and get that hero to the end of the level
-    alive. \n\nPlease just get this incompetent hero out of here... Or his corpses
-    might stink up the place...\n\nMeanwhile the hero will act on their own. Keep
-    an eye out for the rhythm bar at the top, cause the hero will move to the beat
-    of the song. The rhythm bar will show what actions the hero will perform and
-    when. You need his cooperation to beat the levels, but he may also hurt himself
-    if not kept in check. So keep an eye on his rhythm. \n"
+    Move them with the WASD or Arrow keys and get that hero through the gate at the
+    end of the level alive. \n\nPlease just get this incompetent hero out of here...
+    Or his corpses might stink up the place...\n\nMeanwhile the hero will act on
+    their own. Keep an eye out for the rhythm bar at the top, cause the hero will
+    move to the beat of the song. The rhythm bar will show what actions the hero
+    will perform and when. You need his cooperation to beat the levels, but he may
+    also hurt himself if not kept in check. So keep an eye on his rhythm. \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

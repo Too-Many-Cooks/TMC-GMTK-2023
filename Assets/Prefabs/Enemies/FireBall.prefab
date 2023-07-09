@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2646437275036861957}
   - component: {fileID: 5412101920336648930}
   - component: {fileID: 8267648365027366474}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireBallMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8915617196358402263}
   - component: {fileID: 4144593202242965922}
   - component: {fileID: -1458879454155667278}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

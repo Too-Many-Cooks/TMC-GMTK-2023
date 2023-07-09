@@ -21,7 +21,7 @@ public class HeroHealthManager : MonoBehaviour
     bool invincible = false;
 
     [SerializeField]
-    MeshRenderer blinkingMeshRenderer;
+    Renderer blinikingRenderer;
 
     private void Start()
     {
@@ -51,9 +51,9 @@ public class HeroHealthManager : MonoBehaviour
         int times = 2;
         for (int i = 0; i < times / 2; i++)
         {
-            blinkingMeshRenderer.enabled = false;
+            blinikingRenderer.enabled = false;
             yield return new WaitForSeconds(duration / (float)times);
-            blinkingMeshRenderer.enabled = true;
+            blinikingRenderer.enabled = true;
             yield return new WaitForSeconds(duration / (float)times);
         }
     }

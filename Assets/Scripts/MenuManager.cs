@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject initialScreen;
-    [SerializeField] GameObject levelSelection;
+    [SerializeField] GameObject levelSelectionScreen;
+    [SerializeField] GameObject creditsScreen;
 
     [Header("Scenes:")]
     [SerializeField] private int scene1Index;
@@ -39,12 +40,25 @@ public class MenuManager : MonoBehaviour
     public void ClickEnterLevelSelection()
     {
         initialScreen.SetActive(false);
-        levelSelection.SetActive(true);
+        levelSelectionScreen.SetActive(true);
     }
 
     public void ClickExitLevelSelection()
     {
         initialScreen.SetActive(true);
-        levelSelection.SetActive(false);
+        levelSelectionScreen.SetActive(false);
+    }
+
+
+    public void ClickEnterCredits()
+    {
+        initialScreen.SetActive(false);
+        levelSelectionScreen.SetActive(true);
+    }
+
+    public void ClickExitCredits()
+    {
+        initialScreen.SetActive(true);
+        levelSelectionScreen.SetActive(false);
     }
 }

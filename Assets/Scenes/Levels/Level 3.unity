@@ -1033,14 +1033,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4271124073765992735, guid: 1e8ab5bfc39f3294393151cd985998cc, type: 3}
-      propertyPath: sounds2D.Array.data[1].volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4271124073765992735, guid: 1e8ab5bfc39f3294393151cd985998cc, type: 3}
-      propertyPath: sounds2D.Array.data[2].volume
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 4365052488842648496, guid: 1e8ab5bfc39f3294393151cd985998cc, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1804,6 +1796,14 @@ PrefabInstance:
     - target: {fileID: 1426293606052461132, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
       propertyPath: m_Name
       value: RhythmInterfaceCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964833759679368335, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613752387724728052, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8122563539059183503, guid: 86fec7c3a335ec144b5258b6030aa279, type: 3}
       propertyPath: m_RenderMode

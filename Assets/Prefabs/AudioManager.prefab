@@ -53,19 +53,37 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HeroJump
     audioClip: {fileID: 8300000, guid: ec96630f8288b6d44ac5238031821361, type: 3}
-    volume: 1
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MoveEnvironment
     audioClip: {fileID: 8300000, guid: 3a6c11e7cdc1d2443bb8afcad1a96ab4, type: 3}
-    volume: 1
+    volume: 0.9
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SwordSwing
     audioClip: {fileID: 8300000, guid: 8bdc5ad3b91db57419dee25a1a1ca140, type: 3}
     volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HeroHit
+    audioClip: {fileID: 8300000, guid: a55f7180711b21c4cbaf5d0d0227f08e, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LevelSuccess
+    audioClip: {fileID: 8300000, guid: 4d266c75fb665b949874d6772ff303bd, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ThrowFireball
+    audioClip: {fileID: 8300000, guid: cae06f1e3e35a144ba9dee53fef4f72b, type: 3}
+    volume: 0.15
     pitch: 1
     loop: 0
     source: {fileID: 0}

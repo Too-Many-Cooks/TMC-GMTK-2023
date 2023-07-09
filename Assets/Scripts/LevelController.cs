@@ -28,17 +28,31 @@ public class LevelController : MonoBehaviour
 
     private new Rigidbody2D rigidbody2D;
 
+    #region Audio
+
+    AudioManager _myAudioManager;
+    AudioManager MyAudioManager
+    {
+        get
+        {
+            if (_myAudioManager == null)
+                _myAudioManager = AudioManager.instance;
+
+            return _myAudioManager;
+        }
+    }
+
+    const string shiftEnvironmentSoundName = "MoveEnvironment";
+
+    #endregion
+
+
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         origin = rigidbody2D.position;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -94,6 +108,7 @@ public class LevelController : MonoBehaviour
         if(shiftCooldownTimer < shiftQueueTime)
         {
             queuedShift = Vector2Int.up;
+            MyAudioManager.PlaySound(shiftEnvironmentSoundName);
         }
     }
 
@@ -102,6 +117,7 @@ public class LevelController : MonoBehaviour
         if (shiftCooldownTimer < shiftQueueTime)
         {
             queuedShift = Vector2Int.down;
+            MyAudioManager.PlaySound(shiftEnvironmentSoundName);
         }
     }
 
@@ -110,6 +126,7 @@ public class LevelController : MonoBehaviour
         if (shiftCooldownTimer < shiftQueueTime)
         {
             queuedShift = Vector2Int.left;
+            MyAudioManager.PlaySound(shiftEnvironmentSoundName);
         }
     }
 
@@ -118,6 +135,7 @@ public class LevelController : MonoBehaviour
         if (shiftCooldownTimer < shiftQueueTime)
         {
             queuedShift = Vector2Int.right;
+            MyAudioManager.PlaySound(shiftEnvironmentSoundName);
         }
     }
 }

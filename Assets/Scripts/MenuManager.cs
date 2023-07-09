@@ -38,6 +38,8 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
+    #region Click Functions
     public void ClickEnterLevelSelection()
     {
         initialScreen.SetActive(false);
@@ -75,5 +77,7 @@ public class MenuManager : MonoBehaviour
         initialScreen.SetActive(true);
         instructionsScreen.SetActive(false);
     }
+
+    #endregion
 }
 

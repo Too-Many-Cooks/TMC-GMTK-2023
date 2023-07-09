@@ -80,6 +80,10 @@ public class LevelController : MonoBehaviour
         {
             currentShift += queuedShift;
             currentShift.Clamp(bottomLeftClamp, topRightClamp);
+            if(currentShift == Vector2.zero)
+            {
+                MyAudioManager.PlaySound(shiftEnvironmentSoundName);
+            }
             shiftCooldownTimer = TrueShiftCooldown;
             shiftTimer = TrueShiftDuration;
             shiftPosition = origin + (Vector2)currentShift * shiftDistance;

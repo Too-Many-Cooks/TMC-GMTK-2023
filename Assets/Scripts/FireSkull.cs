@@ -8,6 +8,27 @@ public class FireSkull : MonoBehaviour, IEnemy, IDamager
     [SerializeField]
     GameObject fireBallPrefab;
 
+
+    #region Audio
+
+    AudioManager _myAudioManager;
+    AudioManager MyAudioManager
+    {
+        get
+        {
+            if (_myAudioManager == null)
+                _myAudioManager = AudioManager.instance;
+
+            return _myAudioManager;
+        }
+    }
+
+    const string SpitFireballSoundName = "ThrowFireball";
+    const string swordSwingSoundName = "SwordSwing";
+
+    #endregion
+
+
     bool first = true;
 
     public void Die()
@@ -40,5 +61,7 @@ public class FireSkull : MonoBehaviour, IEnemy, IDamager
         GameObject g = Instantiate(fireBallPrefab);
         g.transform.position = transform.position;
         g.transform.rotation = transform.rotation;
+
+        MyAudioManager.PlaySound(SpitFireballSoundName);
     }
 }

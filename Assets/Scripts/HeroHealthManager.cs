@@ -31,6 +31,26 @@ public class HeroHealthManager : MonoBehaviour
     int lastCrushFrame = int.MinValue;
     int crushFrameCount = 0;
 
+
+    #region Audio
+
+    AudioManager _myAudioManager;
+    AudioManager MyAudioManager
+    {
+        get
+        {
+            if (_myAudioManager == null)
+                _myAudioManager = AudioManager.instance;
+
+            return _myAudioManager;
+        }
+    }
+
+    const string takeDamageSoundName = "HeroHit";
+
+    #endregion
+
+
     private void Start()
     {
         healthVisualizer = HealthVisualization.Instance;
@@ -143,6 +163,9 @@ public class HeroHealthManager : MonoBehaviour
         invincible = true;
         currentInvincibilityDurationInBeats = invincibilityDurationInBeats;
         //StartCoroutine(InvicibilityCoroutine(invincibilityDurationInBeats));
+
+        if(!MyAudioManager.FindSound(takeDamageSoundName).source.isPlaying)
+            MyAudioManager.PlaySound(takeDamageSoundName);
     }
 
     private void HandleDeath()

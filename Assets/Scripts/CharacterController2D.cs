@@ -16,6 +16,12 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField] private float jumpDuration = 0.625f;
     [SerializeField] private float coyoteTime = 0.05f;
 
+    [SerializeField] private AttackData attack;
+    private float attackTimer = 0f;
+    private float attackCooldown = 0f;
+    private GameObject hitbox;
+    private BoxCollider2D hitboxCollider;
+
 
     #region Audio
 
@@ -54,18 +60,28 @@ public class CharacterController2D : MonoBehaviour
     private bool isGrounded = false;
 
     public UnityEvent<bool> OnGrounded;
-
     public UnityEvent<float> OnRunning;
+    public UnityEvent<bool> OnAttacking;
+
+    private float xVelocity;
 
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         previousPosition = rigidbody2D.position;
+        hitbox = new GameObject("Hurtbox");
+        hitbox.transform.parent = this.transform;
+        hitbox.transform.localPosition = Vector3.zero;
+        hitboxCollider = hitbox.AddComponent<BoxCollider2D>();
+        hitbox.AddComponent<SwordKilling>();
+        hitboxCollider.enabled = false;
+        hitboxCollider.isTrigger = true;
     }
 
     void FixedUpdate()
     {
         CalculateMovement();
+        CalculateAttack();
     }
 
     private void CalculateMovement()
@@ -132,7 +148,7 @@ public class CharacterController2D : MonoBehaviour
 
         if (desiredShift == 0f)
         {
-            var xVelocity = desiredMove * MoveSpeed;
+            xVelocity = desiredMove * MoveSpeed;
 
             desiredPosition.x += xVelocity * Time.fixedDeltaTime;
 
@@ -140,26 +156,70 @@ public class CharacterController2D : MonoBehaviour
         }
         else
         {
-            var xVelocity = rigidbody2D.velocity.x;
+            xVelocity = rigidbody2D.velocity.x;
             var oldShift = currentShift;
             currentShift = Mathf.SmoothDamp(oldShift, desiredShift, ref xVelocity, desiredShiftTime, Mathf.Infinity, Time.fixedDeltaTime);
             desiredShiftTime -= Time.fixedDeltaTime;
             desiredPosition.x += currentShift - oldShift;
 
-            OnRunning.Invoke(xVelocity);
-
             if (currentShift == desiredShift)
             {
+                xVelocity = 0;
                 desiredShift = 0f;
                 currentShift = 0f;
                 desiredShiftTime = 0f;
-
-                OnRunning.Invoke(0);
             }
+
+            OnRunning.Invoke(xVelocity);
         }
 
         previousPosition = rigidbody2D.position;
         rigidbody2D.MovePosition(desiredPosition);
+    }
+
+    private void CalculateAttack()
+    {
+        if (attackTimer > 0f)
+        {
+            var time = 1 - attackTimer / attack.attackDuration;
+            hitboxCollider.offset = attack.meleeAttackCollider.position * Mathf.Sign(xVelocity);
+            hitboxCollider.size = attack.meleeAttackCollider.size;
+            hitboxCollider.enabled = true;
+
+            attackTimer -= Time.fixedDeltaTime;
+
+            OnAttacking.Invoke(true);
+        }
+        else
+        {
+            hitboxCollider.enabled = false;
+
+            OnAttacking.Invoke(false);
+        }
+        if (attackTimer < 0f)
+        {
+            attackTimer = 0f;
+        }
+
+        attackCooldown -= Time.fixedDeltaTime;
+        if (attackCooldown < 0f)
+        {
+            attackCooldown = 0f;
+        }
+    }
+
+    public void OnAttack()
+    {
+        if(attackCooldown <= 0f)
+        {
+            attackTimer = attack.attackDuration;
+            attackCooldown = attack.attackCooldown;
+            hitboxCollider.offset = attack.meleeAttackCollider.position * Mathf.Sign(xVelocity);
+            hitboxCollider.size = attack.meleeAttackCollider.size;
+            hitboxCollider.enabled = true;
+
+            OnAttacking.Invoke(true);
+        }
     }
 
     public void OnMove(float direction)

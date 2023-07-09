@@ -6,6 +6,7 @@ public class HeroAnimationController : MonoBehaviour
 {
     public const string GroundedParameterName = "IsGrounded";
     public const string RunningParameterName = "IsRunning";
+    public const string AttackingParameterName = "IsAttacking";
     public const string XVelocityParameterName = "VelocityX";
     public const string YVelocityParameterName = "VelocityY";
 
@@ -35,5 +36,10 @@ public class HeroAnimationController : MonoBehaviour
     public void OnGrounded(bool isGrounded)
     {
         animator.SetBool(GroundedParameterName, isGrounded);
+    }
+
+    public void OnAttack(bool isAttacking)
+    {
+        animator.SetBool(AttackingParameterName, isAttacking);
     }
 }

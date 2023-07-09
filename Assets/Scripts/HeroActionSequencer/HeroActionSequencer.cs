@@ -16,7 +16,7 @@ public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
     [SerializeField]
     private int graceBars = 2;
     public int RemainingGraceBeats { get => remainingGraceBeats; private set => remainingGraceBeats = value; }
-    [SerializeField]
+
     private int remainingGraceBeats = 0;
     
     public int CurrentActionSequencerIndex { get => currentActionSequencerIndex; private set => currentActionSequencerIndex = value; }

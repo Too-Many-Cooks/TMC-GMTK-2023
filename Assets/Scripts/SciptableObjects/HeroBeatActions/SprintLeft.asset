@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99b897fb42d2148488858ddc2fb3d9f7, type: 3}
-  m_Name: MoveRight
+  m_Name: SprintLeft
   m_EditorClassIdentifier: 
-  Name: Move Right
-  Description: Hero starts moving right
-  Icon: {fileID: 21300000, guid: 3bec22f9985527f4bacd6705b1183e31, type: 3}
-  desiredMove: 1
+  Name: Sprint Left
+  Description: Hero starts sprinting left
+  Icon: {fileID: 21300000, guid: ea8ac8483d756c8418aabd3aa6809830, type: 3}
+  desiredMove: -1
+  sprint: 1

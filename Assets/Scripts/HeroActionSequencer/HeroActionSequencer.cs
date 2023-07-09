@@ -25,6 +25,12 @@ public class HeroActionSequencer : MonoBehaviour, ICharacterEvents
     [SerializeField] private UnityEvent<float> _onMove;
     public UnityEvent<float> OnMove { get { return _onMove; } }
 
+    [SerializeField] private UnityEvent<float> _onMoveOver;
+    public UnityEvent<float> OnMoveOver { get { return _onMoveOver; } }
+
+    [SerializeField] private UnityEvent<bool> _onSprint;
+    public UnityEvent<bool> OnSprint { get { return _onSprint; } }
+
     [SerializeField] private UnityEvent _onJump;
     public UnityEvent OnJump { get { return _onJump; } }
 

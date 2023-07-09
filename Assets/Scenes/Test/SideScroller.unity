@@ -398,8 +398,8 @@ GameObject:
   - component: {fileID: 543337374}
   - component: {fileID: 543337373}
   - component: {fileID: 543337371}
-  - component: {fileID: 543337370}
   - component: {fileID: 543337376}
+  - component: {fileID: 543337370}
   - component: {fileID: 543337377}
   m_Layer: 0
   m_Name: Hero
@@ -424,7 +424,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 259a95b1aed31824a9dbbd6230eab646, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -447,7 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99daee3a904b8de408406c3f277c8e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 12
+  runSpeed: 8
+  sprintSpeed: 12
   jumpHeight: 5.5
   jumpDuration: 0.625
   coyoteTime: 0.05
@@ -509,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543337369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -543,12 +544,80 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 543337371}
+        m_TargetAssemblyTypeName: CharacterController2D, Assembly-CSharp
+        m_MethodName: OnSprint
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7879d085-42ed-4fa6-9da7-3ae586e5c399
+    m_ActionName: Hero Runner/Sprint[/Keyboard/shift,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 8c86035f-ad3d-4188-bdf8-3182ee2aca70
-    m_ActionName: Hero Control/Move[/Keyboard/a,/Keyboard/d]
+    m_ActionId: b7aad674-cb70-4efc-8f81-427a13dc28ae
+    m_ActionName: Hero Runner/Run[/Keyboard/a,/Keyboard/d,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 366ab8a4-ffe2-4294-a961-725e90a4e63d
+    m_ActionName: Hero Runner/Jump[/Keyboard/space,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 543337371}
+        m_TargetAssemblyTypeName: CharacterController2D, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a67e69a7-d393-4d24-b2b3-62dae059af2f
+    m_ActionName: Hero Control/Jump[/Keyboard/space,/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 543337369}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f1ef98fc-8bcd-4725-92de-a18cb58c5930
+    m_ActionName: Hero Control/Sprint[/Keyboard/shift,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 543337369}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f2325e3d-39cb-4005-81ad-c7a3d5c3d9e0
+    m_ActionName: Hero Control/Run[/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Hero Runner
+  m_DefaultActionMap: Hero Control
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 801848322}
 --- !u!70 &543337377

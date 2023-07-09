@@ -177,9 +177,14 @@ public class CharacterController2D : MonoBehaviour
         OnMoveOver(value.Get<float>());
     }
 
-    public void OnSprint(bool sprint = true)
+    public void OnSprint(bool sprint)
     {
         isSprinting = sprint;
+    }
+
+    public void OnSprint()
+    {
+        OnSprint(true);
     }
 
     public void OnSprint(InputValue value)

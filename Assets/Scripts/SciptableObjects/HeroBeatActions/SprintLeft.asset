@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Sprint Left
   Description: Hero starts sprinting left
-  Icon: {fileID: 21300000, guid: 8dfa6d910f2ea1a4081d90a47f868a73, type: 3}
+  Icon: {fileID: 21300000, guid: ea8ac8483d756c8418aabd3aa6809830, type: 3}
   desiredMove: -1
   sprint: 1

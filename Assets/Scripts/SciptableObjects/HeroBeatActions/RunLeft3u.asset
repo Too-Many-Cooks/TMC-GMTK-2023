@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b897fb42d2148488858ddc2fb3d9f7, type: 3}
-  m_Name: RunRight
+  m_Script: {fileID: 11500000, guid: c5137b9b27d8bf74bb1ba73447ca3d40, type: 3}
+  m_Name: RunLeft3u
   m_EditorClassIdentifier: 
-  Name: Run Right
-  Description: Hero starts running right
-  Icon: {fileID: 21300000, guid: 04ff841cb36c77340a33fcd1c647d239, type: 3}
-  desiredMove: 1
+  Name: Run Left 3 Units
+  Description: Hero runs 3 units left
+  Icon: {fileID: 21300000, guid: 8dfa6d910f2ea1a4081d90a47f868a73, type: 3}
+  displacement: -3
   sprint: 0

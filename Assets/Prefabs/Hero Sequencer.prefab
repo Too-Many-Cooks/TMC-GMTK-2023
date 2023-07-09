@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9093741652433490023}
   - component: {fileID: 4932599603514417795}
+  - component: {fileID: 60702875312296293}
+  - component: {fileID: 8363733928623038043}
   m_Layer: 0
   m_Name: Hero Sequencer
   m_TagString: Untagged
@@ -44,10 +46,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f8de2b1ecfd7444b4ff23824ff851d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroActionSequencer: {fileID: 0}
+  heroActionSequence: {fileID: 0}
+  graceBars: 2
   _onMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _onMoveOver:
+    m_PersistentCalls:
+      m_Calls: []
+  _onSprint:
     m_PersistentCalls:
       m_Calls: []
   _onJump:
     m_PersistentCalls:
       m_Calls: []
+--- !u!50 &60702875312296293
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324754327083463799}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &8363733928623038043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324754327083463799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99daee3a904b8de408406c3f277c8e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 8
+  sprintSpeed: 12
+  jumpHeight: 5.5
+  jumpDuration: 0.625
+  coyoteTime: 0.05
+  OnGrounded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HeroAnimationController, Assembly-CSharp
+        m_MethodName: OnGrounded
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnRunning:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: HeroAnimationController, Assembly-CSharp
+        m_MethodName: OnRun
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

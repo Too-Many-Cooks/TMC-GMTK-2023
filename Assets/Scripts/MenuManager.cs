@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject initialScreen;
-    [SerializeField] GameObject levelSelection;
+    [SerializeField] GameObject levelSelectionScreen;
+    [SerializeField] GameObject instructionsScreen;
+    [SerializeField] GameObject creditsScreen;
 
     [Header("Scenes:")]
     [SerializeField] private int scene1Index;
@@ -36,15 +38,46 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
+    #region Click Functions
     public void ClickEnterLevelSelection()
     {
         initialScreen.SetActive(false);
-        levelSelection.SetActive(true);
+        levelSelectionScreen.SetActive(true);
     }
 
     public void ClickExitLevelSelection()
     {
         initialScreen.SetActive(true);
-        levelSelection.SetActive(false);
+        levelSelectionScreen.SetActive(false);
     }
+
+
+    public void ClickEnterCredits()
+    {
+        initialScreen.SetActive(false);
+        creditsScreen.SetActive(true);
+    }
+
+    public void ClickExitCredits()
+    {
+        initialScreen.SetActive(true);
+        creditsScreen.SetActive(false);
+    }
+
+
+    public void ClickEnterInstructions()
+    {
+        initialScreen.SetActive(false);
+        instructionsScreen.SetActive(true);
+    }
+
+    public void ClickExitInstructions()
+    {
+        initialScreen.SetActive(true);
+        instructionsScreen.SetActive(false);
+    }
+
+    #endregion
 }
+

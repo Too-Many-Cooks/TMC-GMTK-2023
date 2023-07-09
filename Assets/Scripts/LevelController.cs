@@ -24,6 +24,7 @@ public class LevelController : MonoBehaviour
     private Vector2 origin;
     private Vector2Int queuedShift = Vector2Int.zero;
     private Vector2Int currentShift = Vector2Int.zero;
+    private Vector2Int TempShift = Vector2Int.zero;
     private Vector2 shiftPosition = Vector2.zero;
 
     private new Rigidbody2D rigidbody2D;
@@ -43,6 +44,7 @@ public class LevelController : MonoBehaviour
     }
 
     const string shiftEnvironmentSoundName = "MoveEnvironment";
+    const string LimitEnvironmentSoundName = "EnvironmentLimit";
 
     #endregion
 
@@ -77,9 +79,17 @@ public class LevelController : MonoBehaviour
 
         //Handle current shift
         if (shiftTimer <= 0f && shiftCooldownTimer <= 0f && queuedShift != Vector2.zero)
-        {
+        {   
+
             currentShift += queuedShift;
+            TempShift = currentShift;
             currentShift.Clamp(bottomLeftClamp, topRightClamp);
+
+            if(TempShift != currentShift)
+            {
+                MyAudioManager.PlaySound(LimitEnvironmentSoundName);             
+
+            }
             shiftCooldownTimer = TrueShiftCooldown;
             shiftTimer = TrueShiftDuration;
             shiftPosition = origin + (Vector2)currentShift * shiftDistance;
